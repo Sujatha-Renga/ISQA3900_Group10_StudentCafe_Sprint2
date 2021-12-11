@@ -2,7 +2,7 @@ import braintree
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from orders.models import Order
-
+from django.core.mail import EmailMessage
 # instantiate Braintree payment gateway
 gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 
@@ -29,6 +29,15 @@ def payment_process(request):
             # store the unique transaction id
             order.braintree_id = result.transaction.id
             order.save()
+            # create invoice e-mail
+            subject = 'Student Cafe - Invoice no. {}'.format(order.id)
+            message = 'Thank you for shopping at Student Cafe. Your total bill card to CC is.'
+            email = EmailMessage(subject,
+                                 message,
+                                 'admin@Studentcafe.com',
+                                 [order.email])
+            # send e-mail
+            email.send()
             return redirect('payment:done')
         else:
             return redirect('payment:canceled')
