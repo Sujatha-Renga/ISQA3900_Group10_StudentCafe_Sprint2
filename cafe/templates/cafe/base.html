@@ -17,6 +17,53 @@
 </head>
 <body>
 <!-- Header -->
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'cafe:home' %}">Menu <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contactus">Contact Us</a>
+      </li>
+   <!--login functionality-->
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+
+         <!--My bag functionality-->
+
+        <li class="nav-item">
+
+            {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                    <a class="nav-link" href="{% url "cart:cart_detail" %}" >
+                        My bag <sup style="color: firebrick">{{ totail_items }} item{{ totail_items|pluralize }}</sup>
+                    </a>
+                {% else %}
+
+                {% endif %}
+            {% endwith %}
+        </li>
+     {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'orders:myorders' user.id %}">My Orders</a>
+        </li>
+    {% else %}
+    <li> </li>
+    {% endif %}
+
+    </ul>
+  </div>
+</nav>
+<!--
 <nav>
     <ul class="nav-flex-row">
         <li class="nav-item">
@@ -26,20 +73,19 @@
             <a href="#contact-us">Contact Us</a>
         </li>
 
-        <!--login functionality-->
         {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
         {% else %}
             <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         {% endif %}
 
-        <!--My bag functionality-->
+
 
         <li class="nav-item">
             <a href="{% url "cart:cart_detail" %}">My bag</a>
             {% with totail_items=cart|length %}
                 {% if cart|length > 0 %}
-                    <!--My Shopping Order:-->
+
                     <a href="{% url "cart:cart_detail" %}" style="color: firebrick">
                         <sup>{{ totail_items }} item{{ totail_items|pluralize }}</sup>
                     </a>
@@ -56,16 +102,15 @@
     <li> </li>
     {% endif %}
 
-        <!--<li class="nav-item">
-            <a href="{% url 'login' %}">Log In</a>
-        </li>-->
+
     </ul>
 </nav>
-
+</header>
+--!>
+<main>
 <section class="section-intro">
-    <header>
         <h1>Student's Café</h1>
-    </header>
+
     {% if user.is_authenticated %}
        <div class="page-container">
            <h4 class="top-menu">Hello {{ user.username }}!</h4>
@@ -73,7 +118,7 @@
    {% endif %}
 </section>
 
-
+</main>
 
 {% block content %}
 

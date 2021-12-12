@@ -70,13 +70,13 @@ a.link-to-book:hover {
 }
 */
 
-/*corousel section*/
+/*corousel section
 .carousel-inner{
 	background-size: cover;
 	display:flex;
 	justify-content: center;
 }
-
+*/
 /*
 .about-section p,
 .about-section h3 {
@@ -87,12 +87,12 @@ a.link-to-book:hover {
 	font-size: 1.8em;
 	text-transform: uppercase;
 }
-*/
+
 
 .carousel-inner {
 	height: 300px;
 }
-
+*/
 .row-flex {
 	display: flex;
 	flex-direction: row;
@@ -219,7 +219,9 @@ a.link-to-book:hover {
 	padding: 15px;
 	margin: 25px 25px 25px 100px
 }
-
+.nav-item .nav-link{
+font-family:'Big Shoulders Text', cursive;
+}
 .category-2{
 	float: left;
 	width: 25%;
@@ -266,8 +268,7 @@ a.link-to-book:hover {
 .product-list .item img {
     width:100%;
 
-    margin-bottom:8px;
-
+    margin-bottom:8px;border-radius:20px;
 }
 
 .product-detail {

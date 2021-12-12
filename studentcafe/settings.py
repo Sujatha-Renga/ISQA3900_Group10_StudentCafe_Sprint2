@@ -134,8 +134,8 @@ CART_SESSION_ID = 'cart'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # mail service smtp
-EMAIL_HOST_USER = 'abhaytest3900'  # email id
-EMAIL_HOST_PASSWORD = 'ISqa3900!'  # password
+EMAIL_HOST_USER = 'studentscafe.omaha'  # email id
+EMAIL_HOST_PASSWORD = 'superman@01'  # password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -156,3 +156,5 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PUBLIC_KEY,
     BRAINTREE_PRIVATE_KEY
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
