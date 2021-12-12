@@ -8,16 +8,16 @@
 {% block content %}
     <div class="container">
         <div class="row" style="margin-top: 6%">
-        <h2>Your Shopping Cart
+        <h2>Your Shopping Bag
             <span class="badge pull-right">
                 {% with totail_items=cart|length %}
                     {% if cart|length > 0 %}
-                        My Shopping Order:
+
                         <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
-                            {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}
+
                         </a>
                         {% else %}
-                        Your cart is empty.
+                        Your Bag is empty.
                     {% endif %}
                 {% endwith %}
             </span>
@@ -67,8 +67,8 @@
                 </tbody>
             </table>
         <p class="text-right">
-             <a href="{% url "cafe:product_list" %}" class="button light">Continue shopping ||</a>
-             <a href="{% url 'orders:order_create' %}" class="button">Checkout</a>
+            <a href="{% url "cafe:product_list" %}" class="button light"><b>Continue shopping</b></a> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+             <a href="{% url 'orders:order_create' %}" class="button"><b>Proceed to Checkout</b></a>
         </p>
         </div>
     </div>

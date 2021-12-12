@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.urls import reverse
 from cart.forms import CartAddProductForm
-
+from django.core.mail import EmailMessage
 from django.urls import reverse_lazy
 from django.views import generic
 from .forms import CustomUserCreationForm

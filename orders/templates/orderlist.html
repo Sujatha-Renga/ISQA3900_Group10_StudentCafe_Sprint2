@@ -11,7 +11,7 @@
 
 
     <th> Order ID </th>
-    <th> UserName </th>
+
     <th> Created Date </th>
                     </tr>
                 </thead>
@@ -28,7 +28,7 @@
 
     <td>   <a href="{% url 'orders:order_detail' user.id order.id %}">
         Order No {{ order.id }} </a> </td>
-       <td>{{ order.username }} </td>
+
        <td>{{ order.created }} </td>
 </tr>
         &#9;

@@ -31,7 +31,7 @@ def payment_process(request):
             order.save()
             # create invoice e-mail
             subject = 'Student Cafe - Invoice no. {}'.format(order.id)
-            message = 'Thank you for shopping at Student Cafe. Your total bill card to CC is.'
+            message = 'Thank you for shopping at Student Cafe. Your total bill card to CC is.' + format(total_cost)
             email = EmailMessage(subject,
                                  message,
                                  'admin@Studentcafe.com',

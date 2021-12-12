@@ -46,7 +46,7 @@
             {% endif %}
     <div class="item">
         <a href="{{ category.get_absolute_url }}">
-            <img src="{% if category.category_image %}{{ category.category_image.url }}{% else %}{% static "images/no_image.png" %}{% endif %}" height="250" width="250"></a>
+            <div class="imagescontainer"> <img id="imageshot" src="{% if category.category_image %}{{ category.category_image.url }}{% else %}{% static "images/no_image.png" %}{% endif %}" height="250" width="250"></div>
             &nbsp;
             &#9;
 
